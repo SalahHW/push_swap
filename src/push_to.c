@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extract_values.c                                   :+:      :+:    :+:   */
+/*   push_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 13:39:24 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/06 22:49:34 by sbouheni         ###   ########.fr       */
+/*   Created: 2023/03/06 21:47:26 by sbouheni          #+#    #+#             */
+/*   Updated: 2023/03/06 21:53:37 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/libft.h"
 
-int	extract_values(int_list **list, int argc, char **argv)
+void	push(int_list **p, int value)
 {
-	int i;
-	int	n;
+	int_list *element;
 
-	i = 0;
-	while (++i < argc)
-	{
-		n = ft_atoi(argv[i]);
-		push(list, n);
-	}
-	return (0);
+	element = malloc(sizeof(int_list));
+	if (!element)
+		return ;
+	element->number = value;
+	element->previous = *p;
+	*p = element;
 }
