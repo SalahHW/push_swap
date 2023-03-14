@@ -6,23 +6,23 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 23:18:18 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/10 19:37:19 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/03/14 07:52:45 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 void	swap(int_list **list)
 {
 	int tmp;
-	tmp = (*list)->previous->number;
-	(*list)->previous->number = (*list)->number;		
+	tmp = (*list)->prev->number;
+	(*list)->prev->number = (*list)->number;		
 	(*list)->number = tmp;
 }
 
 void	swap_a(int_list **a_list)
 {
-	if ((*a_list)->previous)
+	if ((*a_list)->prev)
 	{
 		swap(a_list);
 	}
@@ -30,7 +30,7 @@ void	swap_a(int_list **a_list)
 
 void	swap_b(int_list **b_list)
 {
-	if ((*b_list)->previous)
+	if ((*b_list)->prev)
 	{
 		swap(b_list);
 	}
