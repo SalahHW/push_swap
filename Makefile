@@ -18,7 +18,7 @@ LIBNAME =	libft.a
 PROG = push_swap
 
 SRC_DIR =			./src/
-INCLUDE_DIR =	./includes/
+INCLUDE_DIR =	./include/
 LIBFT_DIR = 	./libft/
 OBJ_DIR =			./obj/
 
