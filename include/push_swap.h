@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/14 08:05:02 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:38:04 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,25 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct int_list
+typedef struct s_list
 {
 	int				number;
-	struct int_list	*next;
-	struct int_list	*prev;
-}					int_list;
+	struct t_list	*next;
+	struct t_list	*prev;
+}					t_list;
 
 typedef struct
 {
-	int_list		*first;
-	int_list		*last;
+	t_list		*first;
+	t_list		*last;
 }					edge;
 
 ////			list_utils.c		////
 void				init(edge *list);
 void				push_back(edge *list, int value);
 void				push_front(edge *list, int value);
-void				clean_list(edge *list);
+void				clear_list(edge *list);
+void				pop_front(edge *list);
 ////			extract_values.c	////
 int					extract_values(edge *listname, int argc, char **argv);
 ////			swap.c				////

@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 21:47:26 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/14 07:51:38 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:35:34 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	init(edge *list)
 
 void	push_front(edge *list, int number)
 {
-	int_list	*new_element;
+	t_list	*new_element;
 
-	new_element = malloc(sizeof(int_list));
+	new_element = malloc(sizeof(t_list));
 	if (!new_element)
 		return ;
 	new_element->number = number;
@@ -37,9 +37,9 @@ void	push_front(edge *list, int number)
 
 void	push_back(edge *list, int number)
 {
-	int_list	*new_element;
+	t_list	*new_element;
 
-	new_element = malloc(sizeof(int_list));
+	new_element = malloc(sizeof(t_list));
 	if (!new_element)
 		return ;
 	new_element->number = number;
@@ -52,15 +52,28 @@ void	push_back(edge *list, int number)
 	list->last = new_element;
 }
 
-void	clean_list(edge *list)
+void	pop_front(edge *list)
 {
-	int_list	*tmp;
+	t_list	*tmp;
 
-	while (list->last)
+	if (!list->first)
+    return ;
+  tmp = list->first->next;
+  free(list->first);
+  list->first = tmp;
+}
+
+void	clear_list(edge *list)
+{
+	t_list	*tmp;
+	t_list	*first_elem;
+
+	first_elem = list->first;
+	while (first_elem)
 	{
-		tmp = list->first->prev;
-		free(list->first);
-		list->first = tmp;
+		tmp = first_elem;
+		first_elem = first_elem->prev;
+		free(tmp);
 	}
 	init(list);
 }
