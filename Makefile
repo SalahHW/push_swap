@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/03/06 22:44:44 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/03/24 03:03:24 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC = 	$(SRC_DIR)push_swap.c 							\
 				$(SRC_DIR)list_utils.c 							\
 				$(SRC_DIR)extract_values.c 					\
 				$(SRC_DIR)swap.c 										\
-				$(SRC_DIR)push.c
+				$(SRC_DIR)push.c										\
+				$(SRC_DIR)rotate.c									\
+				$(SRC_DIR)reverse_rotate.c
 
 OBJ =		$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
