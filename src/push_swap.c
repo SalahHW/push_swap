@@ -14,12 +14,16 @@
 
 int	main(int argc, char **argv)
 {
-	edge a_list;
-	edge b_list;
+	t_edge a_list;
+	t_edge b_list;
 
 	init(&a_list);
 	init(&b_list);
 	extract_values(&a_list, argc, argv);
 	push_b(&a_list, &b_list);
+  pop_back(&a_list);
+  pop_back(&a_list);
+  pop_back(&a_list);
+  pop_back(&a_list);
 	return (0);
 }
