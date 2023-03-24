@@ -20,10 +20,9 @@ int	main(int argc, char **argv)
 	init(&a_list);
 	init(&b_list);
 	extract_values(&a_list, argc, argv);
-	push_b(&a_list, &b_list);
-  pop_back(&a_list);
-  pop_back(&a_list);
-  pop_back(&a_list);
-  pop_back(&a_list);
+  swap_a(&a_list);
+  push_b(&a_list, &b_list);
+  push_b(&a_list, &b_list);
+  swap_both(&a_list, &b_list);
 	return (0);
 }
