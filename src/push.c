@@ -11,20 +11,24 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <unistd.h>
 
-void	push_a(edge *a_list, edge *b_list)
+void	push_a(t_edge *a_list, t_edge *b_list)
 {
 	if (b_list->first)
 	{
 		push_front(a_list, b_list->first->number);
+    pop_front(b_list);
+    write(1, &"pa\n", 3);
 	}
 }
 
-void	push_b(edge *a_list, edge *b_list)
+void	push_b(t_edge *a_list, t_edge *b_list)
 {
 	if (a_list->first)
 	{
 		push_front(b_list, a_list->first->number);
-		pop_front(b_list);
+		pop_front(a_list);
+    write(1, &"pb\n", 3);
 	}
 }
