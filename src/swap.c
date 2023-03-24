@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include <unistd.h>
 
 void  swap_a(t_edge *a_list)
 {
