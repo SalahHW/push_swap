@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/22 17:13:31 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:55:57 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void				swap_both(t_edge *a_list, t_edge *b_list);
 void				push_a(t_edge *a_list, t_edge *b_list);
 void				push_b(t_edge *a_list, t_edge *b_list);
 ////			rotate.c			////
-void				rotate_a(void);
-void				rotate_b(void);
-void				rotate_both(void);
+void				rotate_a(t_edge *a_list);
+void				rotate_b(t_edge *b_list);
+void				rotate_both(t_edge *a_list, t_edge *b_list);
 ////			reverse_rotate.c	////
-void				reverse_rotate_a(void);
-void				reverse_rotate_b(void);
-void				reverse_rotate_both(void);
+void				reverse_rotate_a(t_edge *a_list);
+void				reverse_rotate_b(t_edge *b_list);
+void				reverse_rotate_both(t_edge *a_list, t_edge *b_list);
 
 #endif
