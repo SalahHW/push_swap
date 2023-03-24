@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/16 18:38:04 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:13:31 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,34 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				number;
-	struct t_list	*next;
-	struct t_list	*prev;
-}					t_list;
+	struct    s_stack	*next;
+	struct    s_stack	*prev;
+}					  t_stack;
 
 typedef struct
 {
-	t_list		*first;
-	t_list		*last;
-}					edge;
+	t_stack		*first;
+	t_stack		*last;
+}					t_edge;
 
 ////			list_utils.c		////
-void				init(edge *list);
-void				push_back(edge *list, int value);
-void				push_front(edge *list, int value);
-void				clear_list(edge *list);
-void				pop_front(edge *list);
+void				init(t_edge *list);
+void				push_front(t_edge *list, int value);
+void				push_back(t_edge *list, int value);
+void				pop_front(t_edge *list);
+void				pop_back(t_edge *list);
 ////			extract_values.c	////
-int					extract_values(edge *listname, int argc, char **argv);
+int					extract_values(t_edge *listname, int argc, char **argv);
 ////			swap.c				////
-void				swap_a(edge *a_list);
-void				swap_b(edge *b_list);
-void				swap_both(edge *a_list, edge *b_list);
+void				swap_a(t_edge *a_list);
+void				swap_b(t_edge *b_list);
+void				swap_both(t_edge *a_list, t_edge *b_list);
 ////			push.c				////
-void				push_a(edge *a_list, edge *b_list);
-void				push_b(edge *a_list, edge *b_list);
+void				push_a(t_edge *a_list, t_edge *b_list);
+void				push_b(t_edge *a_list, t_edge *b_list);
 ////			rotate.c			////
 void				rotate_a(void);
 void				rotate_b(void);
