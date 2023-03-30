@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/03/24 03:03:24 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/03/30 15:49:45 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,15 @@ CFLAGS =	-Wall -Wextra -Werror -g3
 COMPILE =	$(CC) $(CFLAGS)
 NAME =		push_swap.a
 LIBNAME =	libft.a
-PROG = push_swap
+PROG = ./push_swap
 
 SRC_DIR =			./src/
 INCLUDE_DIR =	./include/
 LIBFT_DIR = 	./libft/
 OBJ_DIR =			./obj/
 
-SRC = 	$(SRC_DIR)push_swap.c 							\
+SRC = 	main.c															\
+				$(SRC_DIR)push_swap.c 							\
 				$(SRC_DIR)list_utils.c 							\
 				$(SRC_DIR)extract_values.c 					\
 				$(SRC_DIR)swap.c 										\
@@ -52,10 +53,10 @@ fclean : clean
 	rm -f $(NAME)
 	cd $(LIBFT_DIR) && $(MAKE) $@
 
-test :	$(NAME)
-	$(COMPILE) -o $(PROG) $(SRC_DIR)push_swap.c $(NAME) 
+$(PROG) : $(NAME)
+	$(COMPILE) -o $(PROG) main.c $(NAME) 
 
-debug : $(NAME) test 
+debug : $(PROG) 
 	lldb $(PROG) 10 20 30 40 50 60 70 80 90 100
 
 re : fclean all
