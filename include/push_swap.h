@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/24 02:55:57 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:29:50 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 typedef struct s_stack
 {
 	int				number;
-	struct    s_stack	*next;
-	struct    s_stack	*prev;
-}					  t_stack;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
 
 typedef struct
 {
-	t_stack		*first;
-	t_stack		*last;
+	t_stack			*first;
+	t_stack			*last;
 }					t_edge;
 
 ////			list_utils.c		////
