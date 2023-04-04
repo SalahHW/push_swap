@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/30 15:29:50 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/05 00:53:21 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,27 @@ typedef struct
 	t_stack			*last;
 }					t_edge;
 
-////			list_utils.c		////
+///       list_utils.c        ///
 void				init(t_edge *list);
+///			list_movements.c		///
 void				push_front(t_edge *list, int value);
 void				push_back(t_edge *list, int value);
 void				pop_front(t_edge *list);
 void				pop_back(t_edge *list);
-////			extract_values.c	////
+///			extract_values.c	///
 int					extract_values(t_edge *listname, int argc, char **argv);
-////			swap.c				////
+///			swap.c				///
 void				swap_a(t_edge *a_list);
 void				swap_b(t_edge *b_list);
 void				swap_both(t_edge *a_list, t_edge *b_list);
-////			push.c				////
+///			push.c				///
 void				push_a(t_edge *a_list, t_edge *b_list);
 void				push_b(t_edge *a_list, t_edge *b_list);
-////			rotate.c			////
+///			rotate.c			///
 void				rotate_a(t_edge *a_list);
 void				rotate_b(t_edge *b_list);
 void				rotate_both(t_edge *a_list, t_edge *b_list);
-////			reverse_rotate.c	////
+///			reverse_rotate.c	///
 void				reverse_rotate_a(t_edge *a_list);
 void				reverse_rotate_b(t_edge *b_list);
 void				reverse_rotate_both(t_edge *a_list, t_edge *b_list);
