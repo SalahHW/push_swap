@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/03/30 15:49:45 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/04/05 01:07:39 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ LIBFT_DIR = 	./libft/
 OBJ_DIR =			./obj/
 
 SRC = 	main.c															\
-				$(SRC_DIR)push_swap.c 							\
-				$(SRC_DIR)list_utils.c 							\
+				$(SRC_DIR)list_movements.c 					\
 				$(SRC_DIR)extract_values.c 					\
 				$(SRC_DIR)swap.c 										\
 				$(SRC_DIR)push.c										\
