@@ -6,16 +6,11 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 21:47:26 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/05 00:56:08 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/05 02:03:47 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-void	init(t_edge *list)
-{
-	list->last = NULL;
-	list->first = NULL;
-}
 
 void	push_front(t_edge *list, int value)
 {
