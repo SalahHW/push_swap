@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/05 00:53:21 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/05 01:54:49 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ typedef struct
 
 ///       list_utils.c        ///
 void				init(t_edge *list);
+int					extract_values(t_edge *listname, int argc, char **argv);
 ///			list_movements.c		///
 void				push_front(t_edge *list, int value);
 void				push_back(t_edge *list, int value);
 void				pop_front(t_edge *list);
 void				pop_back(t_edge *list);
-///			extract_values.c	///
-int					extract_values(t_edge *listname, int argc, char **argv);
 ///			swap.c				///
 void				swap_a(t_edge *a_list);
 void				swap_b(t_edge *b_list);
