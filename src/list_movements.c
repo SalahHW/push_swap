@@ -6,12 +6,13 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 21:47:26 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/05 02:03:47 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/05 05:08:54 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+//Add an element in the front of the list
 void	push_front(t_edge *list, int value)
 {
 	t_stack	*new_element;
@@ -29,6 +30,7 @@ void	push_front(t_edge *list, int value)
 	list->first = new_element;
 }
 
+//Add an element int the back of the list
 void	push_back(t_edge *list, int value)
 {
 	t_stack	*new_element;
@@ -46,6 +48,7 @@ void	push_back(t_edge *list, int value)
 	list->last = new_element;
 }
 
+//Remove an element from the front of the list
 void	pop_front(t_edge *list)
 {
 	t_stack	*tmp;
@@ -62,6 +65,7 @@ void	pop_front(t_edge *list)
 	}
 }
 
+//Remove an element from the back of the list
 void	pop_back(t_edge *list)
 {
 	t_stack	*tmp;
