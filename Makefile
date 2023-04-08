@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/04/08 09:50:06 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/04/08 10:28:59 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIBNAME =	libft.a
 PROG = ./push_swap
 
 SRC_DIR =			./src/
+MOVEMENT_DIR = ./movement/
 INCLUDE_DIR =	./include/
 LIBFT_DIR = 	./libft/
 OBJ_DIR =			./obj/
@@ -25,11 +26,11 @@ OBJ_DIR =			./obj/
 SRC = 	main.c															\
 				$(SRC_DIR)list_utils.c		 					\
 				$(SRC_DIR)list_movements.c 					\
-				$(SRC_DIR)swap.c 										\
-				$(SRC_DIR)push.c										\
-				$(SRC_DIR)rotate.c									\
-				$(SRC_DIR)reverse_rotate.c					\
-				$(SRC_DIR)int_convert_utils.c
+				$(SRC_DIR)int_convert_utils.c				\
+				$(MOVEMENT_DIR)swap.c 							\
+				$(MOVEMENT_DIR)push.c								\
+				$(MOVEMENT_DIR)rotate.c							\
+				$(MOVEMENT_DIR)reverse_rotate.c	
 
 OBJ =		$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
