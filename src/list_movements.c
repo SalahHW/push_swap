@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 21:47:26 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/05 05:08:54 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/08 09:24:17 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,19 @@ void	pop_back(t_edge *list)
 			list->first = NULL;
 		free(tmp);
 	}
+}
+
+//Free all the allocated memory use by the list and set pointers to NULL
+void  clear_list(t_edge *list)
+{
+  t_stack *tmp;
+
+  while (list->first)
+    {
+      tmp = list->first;
+      list->first = list->first->next;
+      free(tmp);
+    }
+  list->last = NULL;
+  list->last = NULL;
 }
