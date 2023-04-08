@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/04/05 02:01:34 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/04/08 09:50:06 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC = 	main.c															\
 				$(SRC_DIR)swap.c 										\
 				$(SRC_DIR)push.c										\
 				$(SRC_DIR)rotate.c									\
-				$(SRC_DIR)reverse_rotate.c
+				$(SRC_DIR)reverse_rotate.c					\
+				$(SRC_DIR)int_convert_utils.c
 
 OBJ =		$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
@@ -56,7 +57,7 @@ $(PROG) : $(NAME)
 	$(COMPILE) -o $(PROG) main.c $(NAME) 
 
 debug : $(PROG) 
-	lldb $(PROG) 10 20 30 40 50 60 70 80 90 100
+	lldb $(PROG) # "-10" "20" "30" "40" "50"  
 
 re : fclean all
 
