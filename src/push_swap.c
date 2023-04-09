@@ -6,13 +6,12 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:25:02 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/05 00:41:38 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/09 11:02:36 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void  push_swap(int argc, char *argv[])
+void	push_swap(int argc, char *argv[])
 {
-
 }

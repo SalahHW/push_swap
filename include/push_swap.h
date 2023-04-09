@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/08 09:47:39 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/04/09 11:05:58 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-typedef struct
+typedef struct s_edge
 {
 	t_stack			*first;
 	t_stack			*last;
@@ -58,5 +58,6 @@ void				reverse_rotate_both(t_edge *a_list, t_edge *b_list);
 ///     int_convert_utils.c   ///
 int					is_convertible_to_int(char *str);
 long				ft_atol(char *str);
+///     error_management.c    ///
 
 #endif
