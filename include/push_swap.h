@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/12 16:34:36 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/12 23:39:32 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ int					is_convertible_to_int(char *str);
 long				ft_atol(char *str);
 ///				push_swap.c
 void				push_swap(t_edge *a_list, t_edge *b_list);
+///				error.c
+int					print_error(void);
 
 #endif
