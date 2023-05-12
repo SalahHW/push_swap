@@ -1,65 +1,96 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/19 06:11:36 by sbouheni          #+#    #+#              #
-#    Updated: 2023/04/08 10:28:59 by sbouheni         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+################################################################################
+#                                     CONFIG                                   #
+################################################################################
 
-CC =		gcc
-CFLAGS =	-Wall -Wextra -Werror -g3
-COMPILE =	$(CC) $(CFLAGS)
-NAME =		push_swap.a
-LIBNAME =	libft.a
-PROG = ./push_swap
+NAME        := push_swap
+CC        := gcc
+FLAGS    := -g3
+################################################################################
+#                                 PROGRAM'S SRCS                               #
+################################################################################
 
-SRC_DIR =			./src/
-MOVEMENT_DIR = ./movement/
-INCLUDE_DIR =	./include/
-LIBFT_DIR = 	./libft/
-OBJ_DIR =			./obj/
+SRCS        :=			src/push_swap.c	\
+						src/int_convert_utils.c \
+						src/list_movements.c \
+						src/list_utils.c \
+						src/position.c \
+						src/sort.c 	\
+						src/error.c \
+						libft/ft_strmapi.c \
+						libft/ft_bzero.c \
+						libft/ft_striteri.c \
+						libft/ft_lstsize_bonus.c \
+						libft/ft_memcmp.c \
+						libft/ft_strjoin.c \
+						libft/ft_strlcat.c \
+						libft/ft_atoi.c \
+						libft/ft_substr.c \
+						libft/ft_strdup.c \
+						libft/ft_strncmp.c \
+						libft/ft_strtrim.c \
+						libft/ft_lstnew_bonus.c \
+						libft/ft_lstlast_bonus.c \
+						libft/ft_lstdelone_bonus.c \
+						libft/ft_tolower.c \
+						libft/ft_isdigit.c \
+						libft/ft_memcpy.c \
+						libft/ft_putchar_fd.c \
+						libft/ft_strlen.c \
+						libft/ft_strchr.c \
+						libft/ft_lstmap_bonus.c \
+						libft/ft_isascii.c \
+						libft/ft_lstadd_front_bonus.c \
+						libft/ft_isalpha.c \
+						libft/ft_itoa.c \
+						libft/ft_calloc.c \
+						libft/ft_putnbr_fd.c \
+						libft/ft_strrchr.c \
+						libft/ft_toupper.c \
+						libft/ft_split.c \
+						libft/ft_lstadd_back_bonus.c \
+						libft/ft_strnstr.c \
+						libft/ft_memmove.c \
+						libft/ft_memchr.c \
+						libft/ft_lstclear_bonus.c \
+						libft/ft_isalnum.c \
+						libft/ft_putendl_fd.c \
+						libft/ft_memset.c \
+						libft/ft_putstr_fd.c \
+						libft/ft_lstiter_bonus.c \
+						libft/ft_strlcpy.c \
+						libft/ft_isprint.c \
+						main.c \
+						movement/swap.c \
+						movement/push.c \
+						movement/reverse_rotate.c \
+						movement/rotate.c \
 
-SRC = 	main.c															\
-				$(SRC_DIR)list_utils.c		 					\
-				$(SRC_DIR)list_movements.c 					\
-				$(SRC_DIR)int_convert_utils.c				\
-				$(MOVEMENT_DIR)swap.c 							\
-				$(MOVEMENT_DIR)push.c								\
-				$(MOVEMENT_DIR)rotate.c							\
-				$(MOVEMENT_DIR)reverse_rotate.c	
+OBJS        := $(SRCS:.c=.o)
 
-OBJ =		$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
-all : $(NAME)
+################################################################################
+#                                  Makefile  objs                              #
+################################################################################
 
-$(NAME) : $(OBJ)
-	make -C libft
-	cp libft/libft.a .
-	mv libft.a $(NAME)
-	ar rcs $(NAME) $(OBJ)
+RM		    := rm -f
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	mkdir -p $(OBJ_DIR)
-	$(COMPILE) -c -o $@ $<
+${NAME}:	${OBJS}
+	${CC} ${FLAGS} -o ${NAME} ${OBJS}
 
-clean :
-	rm -rf $(OBJ_DIR) $(PROG)
-	cd $(LIBFT_DIR) && $(MAKE) $@
+all:		${NAME}
 
-fclean : clean
-	rm -f $(NAME)
-	cd $(LIBFT_DIR) && $(MAKE) $@
+bonus:		all
 
-$(PROG) : $(NAME)
-	$(COMPILE) -o $(PROG) main.c $(NAME) 
+clean:
+	${RM} *.o */*.o */*/*.o
 
-debug : $(PROG) 
-	lldb $(PROG) # "-10" "20" "30" "40" "50"  
+fclean:		clean
+	${RM} ${NAME}
 
-re : fclean all
+re:			fclean all
 
-.PHONY : libft
+.PHONY:		all clean fclean re
+
+
