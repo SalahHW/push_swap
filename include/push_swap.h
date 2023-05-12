@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/03 19:42:44 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:34:36 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,21 @@ int					extract_values(t_edge *listname, int argc, char **argv);
 int					has_correct_values(char **argv);
 int					has_duplicate(t_edge *list);
 int					is_sorted(t_edge *list);
+int					lst_length(t_edge *list);
 ///				list_movements.c
 void				push_front(t_edge *list, int value);
 void				push_back(t_edge *list, int value);
 void				pop_front(t_edge *list);
 void				pop_back(t_edge *list);
 void				clear_list(t_edge *list);
+///				cost.c
+int					find_cheapest_move(t_edge *a_list, t_edge *b_list);
+void				execute_cheapest_move(t_edge *a_list, t_edge *b_list,
+						int nbr);
+///				position.c
+int					find_position(t_edge list, int num);
+///				sort.c
+void				sort(t_edge *a_list, t_edge *b_list);
 ///				swap.c
 void				swap_a(t_edge *a_list);
 void				swap_b(t_edge *b_list);
