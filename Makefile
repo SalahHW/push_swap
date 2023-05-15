@@ -9,13 +9,13 @@ FLAGS    := -g3
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=			src/push_swap.c	\
-						src/int_convert_utils.c \
+SRCS        :=	src/int_convert_utils.c \
 						src/list_movements.c \
 						src/list_utils.c \
 						src/position.c \
-						src/sort.c 	\
 						src/error.c \
+						src/cost.c \
+						src/sort.c \
 						libft/ft_strmapi.c \
 						libft/ft_bzero.c \
 						libft/ft_striteri.c \
