@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:39:24 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/13 18:36:45 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/17 06:06:04 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ int	check_values(char **argv)
 
 int	lst_length(t_edge *list)
 {
-	int count;
-	t_stack *element = list->first;
+	int		count;
+	t_stack	*element;
 
+	element = list->first;
 	count = 0;
-	while(element)
+	while (element)
 	{
 		count++;
 		element = element->next;
@@ -90,8 +91,8 @@ int	is_sorted(t_edge *list)
 {
 	int		number1;
 	int		number2;
-	t_stack *list_ptr1;
-	t_stack *list_ptr2;
+	t_stack	*list_ptr1;
+	t_stack	*list_ptr2;
 
 	list_ptr1 = list->first;
 	while (list_ptr1)
@@ -114,8 +115,8 @@ int	is_reverse_sorted(t_edge *list)
 {
 	int		number1;
 	int		number2;
-	t_stack *list_ptr1;
-	t_stack *list_ptr2;
+	t_stack	*list_ptr1;
+	t_stack	*list_ptr2;
 
 	list_ptr1 = list->first;
 	while (list_ptr1)

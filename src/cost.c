@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:56:22 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/15 18:45:34 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/17 06:05:44 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	calculate_move(t_edge *a_list, t_edge *b_list)
 	a_list_ptr = a_list->first;
 	while (a_list_ptr)
 	{
-		actual_position = find_position(*a_list, a_list_ptr->number);
+		actual_position = find_position(a_list, a_list_ptr->number);
 		futur_position = find_futur_position(a_list_ptr, b_list);
 		if (actual_position > (lst_length(a_list) / 2) + 1)
 			a_list_ptr->rra = lst_length(a_list) - actual_position;
@@ -37,7 +37,23 @@ void	calculate_move(t_edge *a_list, t_edge *b_list)
 	}
 }
 
-void	init_cost(t_edge *a_list)
+t_stack	*find_cheapest_move(t_edge *a_list)
+{
+	t_stack	*cheapest_move;
+	t_stack	*a_list_ptr;
+
+	cheapest_move = a_list->first;
+	a_list_ptr = a_list->first;
+	while (a_list_ptr)
+	{
+		if (a_list_ptr->total < cheapest_move->total)
+			cheapest_move = a_list_ptr;
+		a_list_ptr = a_list_ptr->next;
+	}
+	return (cheapest_move);
+}
+
+void	reset_cost(t_edge *a_list)
 {
 	t_stack	*a_list_ptr;
 

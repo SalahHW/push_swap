@@ -6,11 +6,11 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:26:28 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/04/08 08:49:09 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/17 06:05:27 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
 #include "../include/libft.h"
+#include "../include/push_swap.h"
 
 static int	is_white_space(char c)
 {
@@ -68,4 +68,36 @@ long	ft_atol(char *str)
 		str++;
 	}
 	return (number * sign);
+}
+
+int	greatest_number(t_edge *list)
+{
+	int		greatest_number;
+	t_stack	*list_ptr;
+
+	greatest_number = 0;
+	list_ptr = list->first;
+	while (list_ptr)
+	{
+		if (list_ptr->number > greatest_number)
+			greatest_number = list_ptr->number;
+		list_ptr = list_ptr->next;
+	}
+	return (greatest_number);
+}
+
+int	smallest_number(t_edge *list)
+{
+	int		smallest_number;
+	t_stack	*list_ptr;
+
+	smallest_number = list->first->number;
+	list_ptr = list->first;
+	while (list_ptr)
+	{
+		if (list_ptr->number < smallest_number)
+			smallest_number = list_ptr->number;
+		list_ptr = list_ptr->next;
+	}
+	return (smallest_number);
 }
