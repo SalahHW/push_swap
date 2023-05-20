@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:26:28 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/17 06:05:27 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/20 09:03:02 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/libft.h"
@@ -75,7 +75,7 @@ int	greatest_number(t_edge *list)
 	int		greatest_number;
 	t_stack	*list_ptr;
 
-	greatest_number = 0;
+	greatest_number = list->first->number;
 	list_ptr = list->first;
 	while (list_ptr)
 	{
