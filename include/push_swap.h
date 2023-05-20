@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/19 22:00:35 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:01:57 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void				pop_back(t_edge *list);
 void				clear_list(t_edge *list);
 ///				cost.c
 void				calculate_move(t_edge *a_list, t_edge *b_list);
-void				simplify_move(t_stack *a_element);
+void				simplify_move(t_stack *a_element, int a_list_length, int b_list_length);
 t_move				*find_cheapest_move(t_edge *a_list);
 void				execute_cheapest_move(t_edge *a_list, t_edge *b_list,
 						t_move *a_element);
