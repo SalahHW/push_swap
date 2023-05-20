@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:34:06 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/19 19:59:14 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:23:59 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	final_rotation(t_edge *a_list, t_edge *b_list)
 		futur_position = find_futur_position_in_a(b_element, a_list);
 		while (futur_position != 0)
 		{
-			if (futur_position > lst_length(a_list) / 2 + 1)
+			if (futur_position > lst_length(a_list) / 2)
 				reverse_rotate_a(a_list);
 			else
 				rotate_a(a_list);
@@ -106,7 +106,7 @@ void	final_rotation(t_edge *a_list, t_edge *b_list)
 	while (a_list->first->number != smallest_number(a_list))
 	{
 		if (find_position(a_list, smallest_number(a_list)) > lst_length(a_list)
-			/ 2 + 1)
+			/ 2)
 			reverse_rotate_a(a_list);
 		else
 			rotate_a(a_list);

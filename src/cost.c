@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:56:22 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/20 09:04:51 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:15:00 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ void	calculate_move(t_edge *a_list, t_edge *b_list)
 	{
 		actual_position = find_position(a_list, a_list_ptr->number);
 		futur_position = find_futur_position_in_b(a_list_ptr, b_list);
-		if (actual_position > (lst_length(a_list) / 2) + 1)
+		if (actual_position > lst_length(a_list) / 2)
 			a_list_ptr->rra = lst_length(a_list) - actual_position;
 		else
 			a_list_ptr->ra = actual_position;
-		if (futur_position > (lst_length(b_list) / 2) + 1)
+		if (futur_position > lst_length(b_list) / 2)
 			a_list_ptr->rrb = lst_length(b_list) - futur_position;
 		else
 			a_list_ptr->rb = futur_position;
-//		simplify_move(a_list_ptr);
+		// simplify_move(a_list_ptr, lst_length(a_list), lst_length(b_list));
 		a_list_ptr->total = a_list_ptr->ra + a_list_ptr->rb + a_list_ptr->rra
 			+ a_list_ptr->rrb;
 		a_list_ptr = a_list_ptr->next;
 	}
 }
 
-void	simplify_moves(t_stack *a_element)
+void	simplify_moves(t_stack *a_element, int a_list_length, int b_list_length)
 {
 }
 
