@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/17 05:11:37 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/19 22:00:35 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ typedef struct s_edge
 	t_stack			*last;
 }					t_edge;
 
+typedef struct s_move
+{
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+	int				total;
+}					t_move;
+
 ///       list_utils.c
 void				init(t_edge *list);
 int					extract_values(t_edge *listname, int argc, char **argv);
@@ -51,14 +62,17 @@ void				pop_front(t_edge *list);
 void				pop_back(t_edge *list);
 void				clear_list(t_edge *list);
 ///				cost.c
-void				reset_cost(t_edge *a_list);
 void				calculate_move(t_edge *a_list, t_edge *b_list);
-t_stack				*find_cheapest_move(t_edge *a_list);
+void				simplify_move(t_stack *a_element);
+t_move				*find_cheapest_move(t_edge *a_list);
 void				execute_cheapest_move(t_edge *a_list, t_edge *b_list,
-						t_stack *a_element);
+						t_move *a_element);
+void				reset_cost(t_edge *a_list);
 ///				position.c
 int					find_position(t_edge *list, int num);
-int					find_futur_position(t_stack *element, t_edge *b_list);
+int					find_futur_position_in_a(t_stack *element, t_edge *a_list);
+int					find_futur_position_in_b(t_stack *element, t_edge *b_list);
+void				final_rotation(t_edge *a_list, t_edge *b_list);
 ///				sort.c
 void				sort(t_edge *a_list, t_edge *b_list);
 ///				swap.c
