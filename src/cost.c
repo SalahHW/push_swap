@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:56:22 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/21 02:33:34 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:20:31 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void	calculate_move(t_edge *a_list, t_edge *b_list)
 		a_list_ptr->ra = actual_position;
 		a_list_ptr->rb = futur_position;
 		a_list_ptr->rra = lst_length(a_list) - actual_position;
-		a_list_ptr->rrb = lst_length(a_list) - futur_position;
-		if (a_list_ptr->ra > a_list_ptr->rb)
-			a_list_ptr->rr = a_list_ptr->ra - a_list_ptr->rb;
+		a_list_ptr->rrb = lst_length(b_list) - futur_position;
+		if (a_list_ptr->ra < a_list_ptr->rb)
+			a_list_ptr->rr = a_list_ptr->ra;
 		else
-			a_list_ptr->rr = a_list_ptr->rb - a_list_ptr->ra;
-		if (a_list_ptr->rra > a_list_ptr->rrb)
-			a_list_ptr->rrr = a_list_ptr->rra - a_list_ptr->rrb;
+			a_list_ptr->rr = a_list_ptr->rb;
+		if (a_list_ptr->rra < a_list_ptr->rrb)
+			a_list_ptr->rrr = a_list_ptr->rra;
 		else
-			a_list_ptr->rrr = a_list_ptr->rrb - a_list_ptr->rra;
+			a_list_ptr->rrr = a_list_ptr->rrb - a_list_ptr->rrr;
 		simplify_move(a_list_ptr);
-    a_list_ptr = a_list_ptr->next;
+		a_list_ptr = a_list_ptr->next;
 	}
 }
 
@@ -65,6 +65,14 @@ void	simplify_move(t_stack *a_element)
 		ra_rrb_application(a_element);
 	else if (rra_rb_calculation(a_element) == minimum_move)
 		rra_rb_application(a_element);
+	else
+	{
+		a_element->rr = 0;
+		a_element->rra = 0;
+		a_element->rrb = 0;
+		a_element->rrb = 0;
+		a_element->rrr = 0;
+	}
 }
 
 t_move	*find_cheapest_move(t_edge *a_list)
