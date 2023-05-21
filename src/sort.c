@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:41:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/20 09:33:55 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/21 01:09:33 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,8 @@ static void	deep_sort(t_edge *a_list, t_edge *b_list)
 	final_rotation(a_list, b_list);
 }
 
-void	execute_cheapest_move(t_edge *a_list, t_edge *b_list,
-		t_move *a_moves)
+void	execute_cheapest_move(t_edge *a_list, t_edge *b_list, t_move *a_moves)
 {
-	while (a_moves->ra > 0 && a_moves->rb > 0)
-	{
-		a_moves->ra--;
-		a_moves->rb--;
-		rotate_both(a_list, b_list);
-	}
-	while (a_moves->rra > 0 && a_moves->rrb > 0)
-	{
-		a_moves->rra--;
-		a_moves->rrb--;
-		reverse_rotate_both(a_list, b_list);
-	}
 	while (a_moves->ra-- > 0)
 		rotate_a(a_list);
 	while (a_moves->rra-- > 0)
@@ -73,6 +60,10 @@ void	execute_cheapest_move(t_edge *a_list, t_edge *b_list,
 		rotate_b(b_list);
 	while (a_moves->rrb-- > 0)
 		reverse_rotate_b(b_list);
+	while (a_moves->rr-- > 0)
+		rotate_both(a_list, b_list);
+	while (a_moves->rrr-- > 0)
+		reverse_rotate_both(a_list, b_list);
 	push_b(a_list, b_list);
 	free(a_moves);
 }

@@ -15,6 +15,8 @@ SRCS        :=	src/int_convert_utils.c \
 						src/position.c \
 						src/error.c \
 						src/cost.c \
+						src/cost_calculation.c \
+						src/cost_application.c \
 						src/sort.c \
 						libft/ft_strmapi.c \
 						libft/ft_bzero.c \

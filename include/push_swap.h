@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/20 15:01:57 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/21 01:06:17 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ typedef struct s_move
 	int				total;
 }					t_move;
 
+typedef struct s_combination
+{
+	int				ra_rb;
+	int				rr_ra_rb;
+	int				rra_rrb;
+	int				rrr_rra_rrb;
+	int				ra_rrb;
+	int				rra_rb;
+}					t_combination;
+
 ///       list_utils.c
 void				init(t_edge *list);
 int					extract_values(t_edge *listname, int argc, char **argv);
@@ -63,11 +73,24 @@ void				pop_back(t_edge *list);
 void				clear_list(t_edge *list);
 ///				cost.c
 void				calculate_move(t_edge *a_list, t_edge *b_list);
-void				simplify_move(t_stack *a_element, int a_list_length, int b_list_length);
+void				simplify_move(t_stack *a_element);
 t_move				*find_cheapest_move(t_edge *a_list);
 void				execute_cheapest_move(t_edge *a_list, t_edge *b_list,
 						t_move *a_element);
+int         get_total(t_stack *a_element);
 void				reset_cost(t_edge *a_list);
+///       cost_calculation.c
+int					rra_rrb_calculation(t_stack *a_element);
+int					rr_ra_rb_calculation(t_stack *a_element);
+int					rrr_rra_rrb_calculation(t_stack *a_element);
+int					ra_rrb_calculation(t_stack *a_element);
+int					rra_rb_calculation(t_stack *a_element);
+///       cost_application.c
+void				rra_rrb_application(t_stack *a_element);
+void				rr_ra_rb_application(t_stack *a_element);
+void				rrr_rra_rrb_application(t_stack *a_element);
+void				ra_rrb_application(t_stack *a_element);
+void				rra_rb_application(t_stack *a_element);
 ///				position.c
 int					find_position(t_edge *list, int num);
 int					find_futur_position_in_a(t_stack *element, t_edge *a_list);
