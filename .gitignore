@@ -2,5 +2,5 @@ push_swap
 checker_linux
 imgui.ini
 visualizer_linux_amd64
-push_swap_tester/*
+push_swap_tester/
 visualizer_linux_amd64
