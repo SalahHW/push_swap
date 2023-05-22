@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:56:22 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/21 04:20:31 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/22 04:18:43 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	calculate_move(t_edge *a_list, t_edge *b_list)
 		if (a_list_ptr->rra < a_list_ptr->rrb)
 			a_list_ptr->rrr = a_list_ptr->rra;
 		else
-			a_list_ptr->rrr = a_list_ptr->rrb - a_list_ptr->rrr;
+			a_list_ptr->rrr = a_list_ptr->rrb;
 		simplify_move(a_list_ptr);
 		a_list_ptr = a_list_ptr->next;
 	}
@@ -44,17 +44,7 @@ void	simplify_move(t_stack *a_element)
 {
 	int	minimum_move;
 
-	minimum_move = a_element->ra + a_element->rb;
-	if (rra_rrb_calculation(a_element) < minimum_move)
-		minimum_move = rra_rrb_calculation(a_element);
-	if (rr_ra_rb_calculation(a_element) < minimum_move)
-		minimum_move = rr_ra_rb_calculation(a_element);
-	if (rrr_rra_rrb_calculation(a_element) < minimum_move)
-		minimum_move = rrr_rra_rrb_calculation(a_element);
-	if (ra_rrb_calculation(a_element) < minimum_move)
-		minimum_move = ra_rrb_calculation(a_element);
-	if (rra_rb_calculation(a_element) < minimum_move)
-		minimum_move = rra_rb_calculation(a_element);
+	minimum_move = cost_evaluation(a_element);
 	if (rra_rrb_calculation(a_element) == minimum_move)
 		rra_rrb_application(a_element);
 	else if (rr_ra_rb_calculation(a_element) == minimum_move)
@@ -73,6 +63,24 @@ void	simplify_move(t_stack *a_element)
 		a_element->rrb = 0;
 		a_element->rrr = 0;
 	}
+}
+
+int	cost_evaluation(t_stack *a_element)
+{
+	int	minimum_move;
+
+	minimum_move = a_element->ra + a_element->rb;
+	if (rra_rrb_calculation(a_element) < minimum_move)
+		minimum_move = rra_rrb_calculation(a_element);
+	if (rr_ra_rb_calculation(a_element) < minimum_move)
+		minimum_move = rr_ra_rb_calculation(a_element);
+	if (rrr_rra_rrb_calculation(a_element) < minimum_move)
+		minimum_move = rrr_rra_rrb_calculation(a_element);
+	if (ra_rrb_calculation(a_element) < minimum_move)
+		minimum_move = ra_rrb_calculation(a_element);
+	if (rra_rb_calculation(a_element) < minimum_move)
+		minimum_move = rra_rb_calculation(a_element);
+	return (minimum_move);
 }
 
 t_move	*find_cheapest_move(t_edge *a_list)
@@ -100,36 +108,4 @@ t_move	*find_cheapest_move(t_edge *a_list)
 		a_list_ptr = a_list_ptr->next;
 	}
 	return (cheapest_move);
-}
-
-int	get_total(t_stack *a_element)
-{
-	int	total;
-
-	total = 0;
-	total += a_element->ra;
-	total += a_element->rb;
-	total += a_element->rr;
-	total += a_element->rra;
-	total += a_element->rrb;
-	total += a_element->rrr;
-	return (total);
-}
-
-void	reset_cost(t_edge *a_list)
-{
-	t_stack	*a_list_ptr;
-
-	a_list_ptr = a_list->first;
-	while (a_list_ptr)
-	{
-		a_list_ptr->ra = 0;
-		a_list_ptr->rb = 0;
-		a_list_ptr->rr = 0;
-		a_list_ptr->rra = 0;
-		a_list_ptr->rrb = 0;
-		a_list_ptr->rrr = 0;
-		a_list_ptr->total = 0;
-		a_list_ptr = a_list_ptr->next;
-	}
 }
