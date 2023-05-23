@@ -6,18 +6,12 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:39:24 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/22 04:24:37 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/23 00:45:01 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 #include "../include/push_swap.h"
-
-void	init(t_edge *list)
-{
-	list->first = NULL;
-	list->last = NULL;
-}
 
 int	lst_length(t_edge *list)
 {
@@ -82,21 +76,34 @@ int	is_reverse_sorted(t_edge *list)
 	return (1);
 }
 
-int	extract_values(t_edge *list, int argc, char **argv)
+int	greatest_number(t_edge *list)
 {
-	int	n;
+	int		greatest_number;
+	t_stack	*list_ptr;
 
-	if (!check_values(argv))
-		return (0);
-	while (--argc > 0)
+	greatest_number = list->first->number;
+	list_ptr = list->first;
+	while (list_ptr)
 	{
-		n = ft_atoi(argv[argc]);
-		push_front(list, n);
+		if (list_ptr->number > greatest_number)
+			greatest_number = list_ptr->number;
+		list_ptr = list_ptr->next;
 	}
-	if (has_duplicate(list))
+	return (greatest_number);
+}
+
+int	smallest_number(t_edge *list)
+{
+	int		smallest_number;
+	t_stack	*list_ptr;
+
+	smallest_number = list->first->number;
+	list_ptr = list->first;
+	while (list_ptr)
 	{
-		clear_list(list);
-		return (0);
+		if (list_ptr->number < smallest_number)
+			smallest_number = list_ptr->number;
+		list_ptr = list_ptr->next;
 	}
-	return (1);
+	return (smallest_number);
 }

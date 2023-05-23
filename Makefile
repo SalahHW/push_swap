@@ -9,14 +9,16 @@ FLAGS    := -g3
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=	src/int_convert_utils.c \
-						src/list_movements.c \
-						src/list_utils.c \
-						src/position.c \
-						src/error.c \
+SRCS        :=			utils/int_convert_utils.c \
+						utils/cost_utils.c \
+						utils/list_utils.c \
+						utils/parser_utils.c \
+						utils/list_movements.c \
 						src/cost.c \
 						src/cost_calculation.c \
 						src/cost_application.c \
+						src/parser.c \
+						src/position.c \
 						src/sort.c \
 						libft/ft_strmapi.c \
 						libft/ft_bzero.c \
@@ -61,7 +63,7 @@ SRCS        :=	src/int_convert_utils.c \
 						libft/ft_lstiter_bonus.c \
 						libft/ft_strlcpy.c \
 						libft/ft_isprint.c \
-						main.c \
+						push_swap.c \
 						movement/swap.c \
 						movement/push.c \
 						movement/reverse_rotate.c \

@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:41:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/21 01:09:33 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/23 00:23:05 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,23 @@ static void	deep_sort(t_edge *a_list, t_edge *b_list)
 	final_rotation(a_list, b_list);
 }
 
+void	sort(t_edge *a_list, t_edge *b_list)
+{
+	if (lst_length(a_list) < 3)
+		rotate_a(a_list);
+	else if (lst_length(a_list) == 3)
+	{
+		if (!is_sorted(a_list))
+			sort_three_element(a_list);
+	}
+	else
+	{
+		push_b(a_list, b_list);
+		push_b(a_list, b_list);
+		deep_sort(a_list, b_list);
+	}
+}
+
 void	execute_cheapest_move(t_edge *a_list, t_edge *b_list, t_move *a_moves)
 {
 	while (a_moves->ra-- > 0)
@@ -68,19 +85,31 @@ void	execute_cheapest_move(t_edge *a_list, t_edge *b_list, t_move *a_moves)
 	free(a_moves);
 }
 
-void	sort(t_edge *a_list, t_edge *b_list)
+void	final_rotation(t_edge *a_list, t_edge *b_list)
 {
-	if (lst_length(a_list) < 3)
-		rotate_a(a_list);
-	else if (lst_length(a_list) == 3)
+	t_stack	*b_element;
+	int		futur_position;
+
+	while (lst_length(b_list) > 0)
 	{
-		if (!is_sorted(a_list))
-			sort_three_element(a_list);
+		b_element = b_list->first;
+		futur_position = find_futur_position_in_a(b_element, a_list);
+		while (futur_position != 0)
+		{
+			if (futur_position > lst_length(a_list) / 2)
+				reverse_rotate_a(a_list);
+			else
+				rotate_a(a_list);
+			futur_position = find_futur_position_in_a(b_element, a_list);
+		}
+		push_a(a_list, b_list);
 	}
-	else
+	while (a_list->first->number != smallest_number(a_list))
 	{
-		push_b(a_list, b_list);
-		push_b(a_list, b_list);
-		deep_sort(a_list, b_list);
+		if (find_position(a_list, smallest_number(a_list)) > lst_length(a_list)
+			/ 2)
+			reverse_rotate_a(a_list);
+		else
+			rotate_a(a_list);
 	}
 }
