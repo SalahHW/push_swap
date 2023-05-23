@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:34:06 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/23 00:23:09 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:18:08 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,23 @@ int	find_futur_position_in_a(t_stack *element, t_edge *a_list)
 
 int	find_futur_position_in_b(t_stack *element, t_edge *b_list)
 {
-	t_stack	*b_list_ptr;
-	int		next_number_b;
+	t_stack *b_list_ptr;
+	int	position;
 
-	if (element->number > greatest_number(b_list))
+	position = 0;
+	if (element->number > b_list->first->number && element->number
+		< b_list->last->number)
+		return (0);
+	else if (element->number > greatest_number(b_list)
+		|| element->number < smallest_number(b_list))
 		return (find_position(b_list, greatest_number(b_list)));
-	else if (element->number < smallest_number(b_list))
-		return (find_position(b_list, smallest_number(b_list)) + 1);
-	b_list_ptr = b_list->first;
-	while (b_list_ptr)
+	else
 	{
-		if (b_list_ptr->next)
-		{
-			next_number_b = b_list_ptr->next->number;
+		b_list_ptr = b_list->first;
+		while (b_list_ptr->number < element->number
+			|| b_list_ptr->next->number > element->number)
 			b_list_ptr = b_list_ptr->next;
-		}
-		else
-		{
-			next_number_b = b_list->first->number;
-			b_list_ptr = b_list->first;
-		}
-		if (element->number < b_list_ptr->number
-			&& element->number > next_number_b)
-			return (find_position(b_list, next_number_b));
+		position = find_position(b_list, b_list_ptr->next->number);
 	}
-	return (0);
+	return (position);
 }
