@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:18:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/27 12:35:57 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:31:27 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,28 @@ int	has_duplicate(t_edge *list)
 			list_ptr = list_ptr->next;
 		}
 		list_first_elem_ptr = list_first_elem_ptr->next;
+	}
+	return (0);
+}
+
+int	is_white_space(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	return (0);
+}
+
+int	has_white_space(char *str)
+{
+	char	*ptr;
+
+	ptr = str;
+	while (*ptr)
+	{
+		if (is_white_space(*ptr))
+			return (1);
+		ptr++;
 	}
 	return (0);
 }

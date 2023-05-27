@@ -6,21 +6,11 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:26:28 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/27 12:34:07 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/28 00:59:40 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-
-static int	is_white_space(char c)
-{
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
-		|| c == ' ')
-		return (1);
-	else
-		return (0);
-}
 
 long	ft_atol(char *str)
 {
@@ -43,4 +33,27 @@ long	ft_atol(char *str)
 		str++;
 	}
 	return (number * sign);
+}
+
+void	check_multiple_zero(char **str, char **splited_values)
+{
+	char	**ptr;
+
+	ptr = str;
+	if ((*ptr)[0] && ((*ptr)[0] == '-' || (*ptr)[0] == '+'))
+	{
+		if ((*ptr)[1] && ((*ptr)[1] == '0') && (*ptr)[2])
+		{
+			if (splited_values)
+				free_tab(splited_values);
+			exit_error();
+		}
+	}
+	else if ((*ptr)[0] && ((*ptr)[0] == '0') && (*ptr)[1])
+	{
+		if (splited_values)
+			free_tab(splited_values);
+		exit_error();
+	}
+	return ;
 }
