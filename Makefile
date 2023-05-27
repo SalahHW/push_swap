@@ -6,12 +6,12 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 05:33:03 by sbouheni          #+#    #+#              #
-#    Updated: 2023/05/27 03:00:38 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/05/28 01:35:58 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		gcc
-CFLAGS = 	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = 	-Wall -Wextra -Werror -g3 
 COMPILE = 	$(CC) $(CFLAGS)
 NAME =		push_swap
 BONUS_NAME = checker
