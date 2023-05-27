@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 23:16:49 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/27 03:15:27 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:30:56 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	push_b(t_edge *a_list, t_edge *b_list, int write_move)
 	{
 		push_front(b_list, a_list->first->number);
 		pop_front(a_list);
-		if(write_move)
+		if (write_move)
 			ft_putstr_fd("pb\n", 1);
 	}
 }
