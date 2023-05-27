@@ -6,13 +6,13 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 23:18:18 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/03/30 15:28:48 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/27 03:15:27 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap_a(t_edge *a_list)
+void	swap_a(t_edge *a_list, int write_move)
 {
 	int	first_value;
 	int	second_value;
@@ -25,11 +25,12 @@ void	swap_a(t_edge *a_list)
 		pop_front(a_list);
 		push_front(a_list, first_value);
 		push_front(a_list, second_value);
-		write(1, &"sa\n", 3);
+		if (write_move)
+			ft_putstr_fd("sa\n", 1);
 	}
 }
 
-void	swap_b(t_edge *b_list)
+void	swap_b(t_edge *b_list, int write_move)
 {
 	int	first_value;
 	int	second_value;
@@ -42,11 +43,12 @@ void	swap_b(t_edge *b_list)
 		pop_front(b_list);
 		push_front(b_list, first_value);
 		push_front(b_list, second_value);
-		write(1, &"sb\n", 3);
+		if (write_move)
+			ft_putstr_fd("sb\n", 1);
 	}
 }
 
-void	swap_both(t_edge *a_list, t_edge *b_list)
+void	swap_both(t_edge *a_list, t_edge *b_list, int write_move)
 {
 	int	first_value_a;
 	int	first_value_b;
@@ -68,6 +70,7 @@ void	swap_both(t_edge *a_list, t_edge *b_list)
 		push_front(a_list, second_value_a);
 		push_front(b_list, first_value_b);
 		push_front(b_list, second_value_b);
-		write(1, &"ss\n", 3);
+		if (write_move)
+			ft_putstr_fd("ss\n", 1);
 	}
 }
