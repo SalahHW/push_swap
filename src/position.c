@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:34:06 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/25 06:00:44 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:29:41 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	find_futur_position_in_a(t_stack *element, t_edge *a_list)
 
 int	find_futur_position_in_b(t_stack *element, t_edge *b_list)
 {
-	t_stack *b_list_ptr;
-	int	position;
+	t_stack	*b_list_ptr;
+	int		position;
 
 	position = 0;
-	if (element->number > b_list->first->number && element->number
-		< b_list->last->number)
+	if (element->number > b_list->first->number
+		&& element->number < b_list->last->number)
 		return (0);
 	else if (element->number > greatest_number(b_list)
 		|| element->number < smallest_number(b_list))
