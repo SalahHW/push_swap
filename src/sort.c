@@ -6,35 +6,35 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:41:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/23 00:23:05 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:34:37 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	sort_three_element(t_edge *a_list)
+void	sort_three_element(t_edge *a_list)
 {
 	if (smallest_number(a_list) == a_list->first->number)
 	{
-		reverse_rotate_a(a_list);
-		swap_a(a_list);
+		reverse_rotate_a(a_list, 1);
+		swap_a(a_list, 1);
 	}
 	else if (greatest_number(a_list) == a_list->first->number)
 	{
-		rotate_a(a_list);
+		rotate_a(a_list, 1);
 		if (!is_sorted(a_list))
-			swap_a(a_list);
+			swap_a(a_list, 1);
 	}
 	else
 	{
 		if (find_position(a_list, greatest_number(a_list)) == 1)
-			reverse_rotate_a(a_list);
+			reverse_rotate_a(a_list, 1);
 		else
-			swap_a(a_list);
+			swap_a(a_list, 1);
 	}
 }
 
-static void	deep_sort(t_edge *a_list, t_edge *b_list)
+void	deep_sort(t_edge *a_list, t_edge *b_list)
 {
 	t_move	*a_moves;
 
@@ -53,7 +53,7 @@ static void	deep_sort(t_edge *a_list, t_edge *b_list)
 void	sort(t_edge *a_list, t_edge *b_list)
 {
 	if (lst_length(a_list) < 3)
-		rotate_a(a_list);
+		rotate_a(a_list, 1);
 	else if (lst_length(a_list) == 3)
 	{
 		if (!is_sorted(a_list))
@@ -61,8 +61,8 @@ void	sort(t_edge *a_list, t_edge *b_list)
 	}
 	else
 	{
-		push_b(a_list, b_list);
-		push_b(a_list, b_list);
+		push_b(a_list, b_list, 1);
+		push_b(a_list, b_list, 1);
 		deep_sort(a_list, b_list);
 	}
 }
@@ -70,18 +70,18 @@ void	sort(t_edge *a_list, t_edge *b_list)
 void	execute_cheapest_move(t_edge *a_list, t_edge *b_list, t_move *a_moves)
 {
 	while (a_moves->ra-- > 0)
-		rotate_a(a_list);
+		rotate_a(a_list, 1);
 	while (a_moves->rra-- > 0)
-		reverse_rotate_a(a_list);
+		reverse_rotate_a(a_list, 1);
 	while (a_moves->rb-- > 0)
-		rotate_b(b_list);
+		rotate_b(b_list, 1);
 	while (a_moves->rrb-- > 0)
-		reverse_rotate_b(b_list);
+		reverse_rotate_b(b_list, 1);
 	while (a_moves->rr-- > 0)
-		rotate_both(a_list, b_list);
+		rotate_both(a_list, b_list, 1);
 	while (a_moves->rrr-- > 0)
-		reverse_rotate_both(a_list, b_list);
-	push_b(a_list, b_list);
+		reverse_rotate_both(a_list, b_list, 1);
+	push_b(a_list, b_list, 1);
 	free(a_moves);
 }
 
@@ -97,19 +97,19 @@ void	final_rotation(t_edge *a_list, t_edge *b_list)
 		while (futur_position != 0)
 		{
 			if (futur_position > lst_length(a_list) / 2)
-				reverse_rotate_a(a_list);
+				reverse_rotate_a(a_list, 1);
 			else
-				rotate_a(a_list);
+				rotate_a(a_list, 1);
 			futur_position = find_futur_position_in_a(b_element, a_list);
 		}
-		push_a(a_list, b_list);
+		push_a(a_list, b_list, 1);
 	}
 	while (a_list->first->number != smallest_number(a_list))
 	{
 		if (find_position(a_list, smallest_number(a_list)) > lst_length(a_list)
 			/ 2)
-			reverse_rotate_a(a_list);
+			reverse_rotate_a(a_list, 1);
 		else
-			rotate_a(a_list);
+			rotate_a(a_list, 1);
 	}
 }

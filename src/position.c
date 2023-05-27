@@ -6,11 +6,10 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:34:06 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/23 15:18:08 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/25 06:00:44 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
 #include "../include/push_swap.h"
 
 int	find_position(t_edge *list, int num)

@@ -6,23 +6,37 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 04:20:03 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/22 18:19:36 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:11:19 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../include/libft.h"
 
-int	extract_values(t_edge *list, int argc, char **argv)
+void	free_tab(char **tab)
+{
+	char	**tab_ptr;
+
+	tab_ptr = tab;
+	while (*tab_ptr)
+	{
+		free(*tab_ptr);
+		tab_ptr++;
+	}
+	free(tab);
+}
+
+int	extract_values(t_edge *list, char **argv)
 {
 	int	n;
 
+	argv++;
 	if (!check_values(argv))
 		return (0);
-	while (--argc > 0)
+	while (*argv)
 	{
-		n = ft_atoi(argv[argc]);
-		push_front(list, n);
+		n = ft_atoi(*argv);
+		push_back(list, n);
+		argv++;
 	}
 	if (has_duplicate(list))
 	{
@@ -32,14 +46,9 @@ int	extract_values(t_edge *list, int argc, char **argv)
 	return (1);
 }
 
-int	check_values(char **argv)
+int	check_values(char **argument)
 {
-	argv++;
-	while (*argv)
-	{
-		if (!is_convertible_to_int(*argv))
-			return (0);
-		argv++;
-	}
+	if (!is_convertible_to_int(*argument))
+		return (0);
 	return (1);
 }
