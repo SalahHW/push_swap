@@ -6,11 +6,12 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:26:28 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/25 06:00:44 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:34:07 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
 
 static int	is_white_space(char c)
 {
