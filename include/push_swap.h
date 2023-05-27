@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 20:26:52 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/23 00:44:40 by sbouheni         ###   ########.fr       */
+/*   Created: 2023/05/27 02:47:18 by sbouheni          #+#    #+#             */
+/*   Updated: 2023/05/27 02:57:23 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -49,7 +50,7 @@ typedef struct s_move
 
 //				push_swap.c
 void				init(t_edge *list);
-int					print_error(void);
+int					exit_error(void);
 //				list_utils.c
 int					lst_length(t_edge *list);
 int					is_sorted(t_edge *list);
@@ -57,7 +58,7 @@ int					is_reverse_sorted(t_edge *list);
 int					greatest_number(t_edge *list);
 int					smallest_number(t_edge *list);
 //				parser.c
-int					extract_values(t_edge *listname, int argc, char **argv);
+int					extract_values(t_edge *listname, char **argv);
 int					check_values(char **argv);
 //				parser_utils.c
 int					is_convertible_to_int(char *str);
@@ -100,19 +101,20 @@ void				final_rotation(t_edge *a_list, t_edge *b_list);
 //				int_convert_utils.c
 long				ft_atol(char *str);
 //				swap.c
-void				swap_a(t_edge *a_list);
-void				swap_b(t_edge *b_list);
-void				swap_both(t_edge *a_list, t_edge *b_list);
+void				swap_a(t_edge *a_list, int write_move);
+void				swap_b(t_edge *b_list, int write_move);
+void				swap_both(t_edge *a_list, t_edge *b_list, int write_move);
 //				push.c
-void				push_a(t_edge *a_list, t_edge *b_list);
-void				push_b(t_edge *a_list, t_edge *b_list);
+void				push_a(t_edge *a_list, t_edge *b_list, int write_move);
+void				push_b(t_edge *a_list, t_edge *b_list, int write_move);
 //				rotate.c
-void				rotate_a(t_edge *a_list);
-void				rotate_b(t_edge *b_list);
-void				rotate_both(t_edge *a_list, t_edge *b_list);
+void				rotate_a(t_edge *a_list, int write_move);
+void				rotate_b(t_edge *b_list, int write_move);
+void				rotate_both(t_edge *a_list, t_edge *b_list, int write_move);
 //				reverse_rotate.c
-void				reverse_rotate_a(t_edge *a_list);
-void				reverse_rotate_b(t_edge *b_list);
-void				reverse_rotate_both(t_edge *a_list, t_edge *b_list);
+void				reverse_rotate_a(t_edge *a_list, int write_move);
+void				reverse_rotate_b(t_edge *b_list, int write_move);
+void				reverse_rotate_both(t_edge *a_list, t_edge *b_list,
+						int write_move);
 
 #endif
