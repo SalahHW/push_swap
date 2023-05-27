@@ -6,11 +6,10 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:18:09 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/23 01:04:51 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/25 06:00:44 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
 #include "../include/push_swap.h"
 
 int	has_duplicate(t_edge *list)
@@ -42,17 +41,19 @@ int	is_convertible_to_int(char *argv)
 
 	argv_ptr = argv;
 	digit_count = 0;
-	if (*argv == '-' || *argv == '+')
+	if (*argv_ptr == '-' || *argv_ptr == '+')
 		argv_ptr++;
 	while (*argv_ptr)
 	{
 		if (digit_count > 10 || !ft_isdigit(*argv_ptr))
 			return (0);
 		digit_count++;
+		if (*argv_ptr == '0')
+			digit_count--;
 		argv_ptr++;
 	}
-	if (digit_count == 0)
-		return (0);
+	// if (digit_count == 0)
+	// 	return (0);
 	if (ft_atol(argv) < -2147483648 || ft_atol(argv) > 2147483647)
 		return (0);
 	return (1);

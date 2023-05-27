@@ -6,11 +6,10 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:39:24 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/23 00:45:01 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/25 06:00:44 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
 #include "../include/push_swap.h"
 
 int	lst_length(t_edge *list)
