@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 02:47:18 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/27 12:34:07 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/28 01:28:54 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,15 @@ int					greatest_number(t_edge *list);
 int					smallest_number(t_edge *list);
 //				parser.c
 int					extract_values(t_edge *listname, char **argv);
-int					check_values(char **argv);
+void				check_values(t_edge *listname, char **argv,
+						char **splited_values);
 void				free_tab(char **tab);
 //				parser_utils.c
 int					is_convertible_to_int(char *str);
 int					has_duplicate(t_edge *list);
 int					has_value_behind(char *c);
+int					is_white_space(char c);
+int					has_white_space(char *c);
 //				list_movements.c
 void				push_front(t_edge *list, int value);
 void				push_back(t_edge *list, int value);
@@ -102,6 +105,7 @@ int					find_futur_position_in_b(t_stack *element, t_edge *b_list);
 void				final_rotation(t_edge *a_list, t_edge *b_list);
 //				int_convert_utils.c
 long				ft_atol(char *str);
+void				check_multiple_zero(char **str, char **splited_values);
 //				swap.c
 void				swap_a(t_edge *a_list, int write_move);
 void				swap_b(t_edge *b_list, int write_move);
