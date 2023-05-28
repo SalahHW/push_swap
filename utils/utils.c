@@ -20,6 +20,6 @@ void	init(t_edge *list)
 
 int	exit_error(void)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
