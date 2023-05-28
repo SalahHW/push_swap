@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 04:20:03 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/05/28 01:36:17 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:19:29 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	check_values(t_edge *list, char **argument, char **splited_values)
 
 	if (has_white_space(*argument))
 	{
-		splited_values = ft_split(*argument, ' ');
+		splited_values = ft_split_white_space(*argument);
 		splited_values_ptr = splited_values;
 		while (*splited_values_ptr)
 		{
